@@ -1,0 +1,7 @@
+---
+- ibm_container_ingress_nlb_health_monitor_host_config:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    config:
+        idOrName: "{{idOrName}}"
+        nlbHost: "{{nlbHost}}"

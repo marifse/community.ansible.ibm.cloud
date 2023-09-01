@@ -1,0 +1,6 @@
+---
+- ibm_container_monitoring_config_discover:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    config:
+        cluster: "{{ cluster }}"
+        instance: "{{ instance }}"

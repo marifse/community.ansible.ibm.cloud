@@ -1,0 +1,17 @@
+---
+- name: Host List Health Monitor
+  hosts: localhost
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        resource_group_id: e33145f2b1294704b47c6f841c91f89c
+        
+
+- name: Host List Health Monitor
+  hosts: localhost
+  roles:
+    - role: ../../../roles/ingress-nlb-health-monitor/nlb-list
+      vars:
+        idOrName: "mycluster-us-south-2-cx2.2x4"

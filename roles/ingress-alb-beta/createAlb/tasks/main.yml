@@ -1,0 +1,10 @@
+---
+- ibm_container_ingress_alb_create:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    config:
+        cluster: "{{cluster}}"
+        enableByDefault: True
+        ingressImage: "{{ingressImage}}"
+        type: "{{type}}"
+        zone: "{{zone}}"

@@ -1,0 +1,31 @@
+- name: Sanity test for Ansible role
+  hosts: localhost
+  gather_facts: false
+  vars:
+    alb_name: "test-alb"
+    vpc_name: "test-vpc"
+    mock_vpc_response:
+      id: "mock-vpc-id"
+  tasks:
+    - name: Set mock VPC response
+      set_fact:
+        vpc_result: {
+          "changed": true,
+          "vpc": "{{ mock_vpc_response }}"
+        }
+
+    - name: Include Ansible role to create ALB
+      include_role:
+        name: ibm_container_ingress_alb_create
+      vars:
+        vpc_id: "{{ vpc_result.vpc.id }}"
+        alb_name: "{{ alb_name }}"
+        pool_id: "{{ pool_id }}"
+
+    - name: Verify ALB was created
+      uri:
+        url: "https://{{ alb_name }}.{{ region }}.lb.appdomain.cloud/"
+      register: uri_result
+      until: uri_result.status == 200
+      retries: 10
+      delay: 10

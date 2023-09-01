@@ -1,0 +1,13 @@
+---
+- ibm_container_ingress_nlb_health_monitor_config:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    config:
+        clusterID: "{{clusterID}}"
+        idOrName: "{{idOrName}}"
+        allowInsecureSet: "{{allowInsecureSet}}"
+        healthcheckProperties: "{{healthcheckProperties}}"
+        desc: "{{desc}}"
+        followRedirectSet: "{{followRedirectSet}}"
+        healtcheckPropertiesSetStatus: "{{healtcheckPropertiesSetStatus}}"
+        nlbHost: "{{nlbHost}}"

@@ -1,0 +1,20 @@
+---
+- name: IKS Modify Config Monitoring 
+  hosts: localhost
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        IC_IAM_TOKEN: "{{ lookup('env','IC_IAM_TOKEN') }}"
+        IC_IAM_REFRESH_TOKEN: "{{ lookup('env','IC_IAM_REFRESH_TOKEN') }}"
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        
+
+- name: Modify Config for SysDig Monitoring
+  hosts: localhost
+  roles:
+    - role: ../../../roles/monitoring/modifyConfig
+      vars:
+        cluster: "mycluster-us-south-2-cx2.2x4"
+        instance: "metrics-us-south-Eb"
+        newInstance: "IBM Cloud Monitoring-7d"

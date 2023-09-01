@@ -1,0 +1,7 @@
+---
+- ibm_container_monitoring_config_modify:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    config:
+        cluster: "{{ cluster }}"
+        instance: "{{ instance }}"
+        newInstance: "{{ newInstance }}"

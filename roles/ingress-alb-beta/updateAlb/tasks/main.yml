@@ -1,0 +1,8 @@
+---
+- ibm_container_ingress_alb_update:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    config:
+        cluster: "{{cluster}}"
+        albBuild: "{{albBuild}}"
+        albList: "{{albList}}"

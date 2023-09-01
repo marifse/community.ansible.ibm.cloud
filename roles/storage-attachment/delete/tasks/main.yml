@@ -1,0 +1,10 @@
+---
+- name: Cluster Info Task
+  ibm_container_storage_attachment_delete:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    vpcVolumeAttachmentConfig:
+        cluster: "{{cluster}}"
+        volumeAttachmentID: "{{volumeAttachmentID}}"
+        worker: "{{ worker }}"
+  register: cluster_info

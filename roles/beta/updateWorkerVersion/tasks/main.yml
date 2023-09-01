@@ -1,0 +1,8 @@
+---
+- ibm_container_update_master:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_ids }}"
+    config:
+        cluster: "{{ cluster }}"
+        version: "{{ version }}"
+        force: True

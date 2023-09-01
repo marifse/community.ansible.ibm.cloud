@@ -1,0 +1,6 @@
+---
+- ibm_container_private_service_endpoint_disable:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_ids }}"
+    config:
+        cluster: "{{ cluster }}"

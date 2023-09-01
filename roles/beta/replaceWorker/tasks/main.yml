@@ -1,0 +1,8 @@
+---
+- ibm_container_replace_worker:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_ids }}"
+    config:
+        cluster: "{{ cluster }}"
+        update: True
+        workerID: "{{ workerID }}"

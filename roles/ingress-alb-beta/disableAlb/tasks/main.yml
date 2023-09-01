@@ -1,0 +1,8 @@
+---
+- ibm_container_ingress_alb_disable:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    resource_group_id: "{{ resource_group_id }}"
+    config:
+        cluster: "{{cluster}}"
+        albID: "{{albID}}"
+        disableDeployment: "{{disableDeployment}}"

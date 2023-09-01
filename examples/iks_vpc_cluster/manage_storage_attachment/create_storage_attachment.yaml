@@ -1,0 +1,36 @@
+---
+- name: IKS Custom Ansible Modules
+  hosts: localhost
+  # User input variables
+  vars_prompt:
+    - name: resource_group_id
+      prompt: Enter resource_group_id
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        IC_IAM_TOKEN: "{{ lookup('env','IC_IAM_TOKEN') }}"
+        IC_IAM_REFRESH_TOKEN: "{{ lookup('env','IC_IAM_REFRESH_TOKEN') }}"
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        resource_group_id: "{{ resource_group_id }}"
+        
+
+#- name: View cluster info
+#  hosts: localhost
+#  roles:
+#    - role: ../roles/storage-attachment/create
+
+#- name: Delete cluster info
+#  hosts: localhost
+#  roles:
+#    - role: ../roles/storage-attachment/delete
+
+- name: Create Config cluster info
+  hosts: localhost
+  roles:
+    - role: ../../../roles/storage-attachment/create
+      vars:
+        cluster: "cfvthuod08rknk0lcncg"
+        volumeAttachmentID: "sadsa-dadsad-asds-ad-as"
+        volumeID: "r006-c73eeb4d-d0c7-443d-aa45-eb0efb239b43-343434"
+        worker: "kube-cf63ll6d0nq35030v0u0-myclusterus-default-00000138"

@@ -1,0 +1,19 @@
+---
+- name: IKS Remove Config Monitoring 
+  hosts: localhost
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        IC_IAM_TOKEN: "{{ lookup('env','IC_IAM_TOKEN') }}"
+        IC_IAM_REFRESH_TOKEN: "{{ lookup('env','IC_IAM_REFRESH_TOKEN') }}"
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        
+
+- name: Remove Config for SysDig Monitoring
+  hosts: localhost
+  roles:
+    - role: ../../../roles/monitoring/removeConfig
+      vars:
+        cluster: "mycluster-us-south-1-cx2.2x4"
+        instance: "metrics-us-south-5h"

@@ -1,0 +1,19 @@
+---
+- name: Enable Image Security
+  hosts: localhost
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        IC_IAM_TOKEN: "{{ lookup('env','IC_IAM_TOKEN') }}"
+        IC_IAM_REFRESH_TOKEN: "{{ lookup('env','IC_IAM_REFRESH_TOKEN') }}"
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        resource_group_ids: e33145f2b1294704b47c6f841c91f89c
+        
+
+- name: Enable Image Security
+  hosts: localhost
+  roles:
+    - role: ../../../roles/image-security/enableImageSecurity
+      vars:
+        cluster: "cf63ll6d0nq35030v0u0"

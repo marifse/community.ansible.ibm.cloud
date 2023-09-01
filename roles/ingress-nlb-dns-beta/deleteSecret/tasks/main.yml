@@ -1,0 +1,6 @@
+---
+- ibm_container_ingress_nlb_delete_secret:
+    ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+    config:
+        cluster: "{{ cluster }}"
+        subdomain: "{{ subDomain }}"

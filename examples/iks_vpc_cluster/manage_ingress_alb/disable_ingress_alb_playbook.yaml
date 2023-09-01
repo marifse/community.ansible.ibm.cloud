@@ -1,0 +1,21 @@
+---
+- name: Disable Ingress ALB 
+  hosts: localhost
+
+  #Execute before tasks
+  pre_tasks:
+    - set_fact:
+        IC_IAM_TOKEN: "{{ lookup('env','IC_IAM_TOKEN') }}"
+        IC_IAM_REFRESH_TOKEN: "{{ lookup('env','IC_IAM_REFRESH_TOKEN') }}"
+        ibmcloud_api_key: "{{ ibmcloud_api_key }}"
+        resource_group_id: e33145f2b1294704b47c6f841c91f89c
+        
+
+- name: Disable Ingress ALB 
+  hosts: localhost
+  roles:
+    - role: ../../../roles/ingress-alb-beta/disableAlb
+      vars:
+        cluster: "cf63ll6d0nq35030v0u0"
+        albID: "private-crcg4a505d0ct6v3bglgvg-alb3"
+        disableDeployment: True
