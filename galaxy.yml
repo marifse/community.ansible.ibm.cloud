@@ -8,7 +8,7 @@ readme: "README.md"
 
 authors:
 
-    - "Umar Ali"
+    - "Muhammad Arif"
 
 description: "Ansible modules collection for IBM-Cloud."
 
@@ -16,9 +16,9 @@ license:
 
     - "MPL-2.0"
 
-issues: https://github.com/marifse/ community.ansible.ibm.cloud/issues
+issues: https://github.com/marifse/community.ansible.ibm.cloud/issues
 
-homepage: https://github.com/marifse/ community.ansible.ibm.cloud
+homepage: https://github.com/marifse/community.ansible.ibm.cloud
 
 tags:
 
@@ -30,5 +30,5 @@ tags:
 
     - ansible
 
-repository: https://github.com/marifse/ community.ansible.ibm.cloud
+repository: https://github.com/marifse/community.ansible.ibm.cloud
 
